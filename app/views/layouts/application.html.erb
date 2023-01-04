@@ -11,6 +11,14 @@
   </head>
 
   <body>
+  <header>
+        <ul class="header-text">
+          <li>
+            friend-application
+          </li>
+        </ul>
+  </header>          
+        
     <% flash.each do |key, value| %>
      <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
@@ -24,5 +32,13 @@
     <% end %>
 
     <%= yield %>
+     
+     <footer>
+       <ul class="footer-text">
+        <li>
+         友達つながりアプリケーション
+        </li>
+       </ul>
+     </footer>    
   </body>
 </html>

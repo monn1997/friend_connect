@@ -7,6 +7,7 @@
     <th>タイトル</th>
     <th>内容</th>
     <th>画像</th>
+    <th>投稿者</th>
   </tr>
 
 <% @blogs.each do |blog| %>
@@ -14,8 +15,9 @@
     <td><%= blog.title %></td>
     <td><%= blog.content %></td>
     <% if blog.image_url %>
-    <td><%= image_tag blog.image_url %></td>
+    <td><%= image_tag blog.image_url, width: '50', height: '50' %></td>
     <% end %>
+    <td><%= blog.user.name %></td>
 
     <td><%= link_to '詳細を確認する', blog_path(blog.id) %></td>
     <td><%= link_to "ブログを編集する", edit_blog_path(blog.id), data: { confirm: '本当に編集していいですか？' } %>
