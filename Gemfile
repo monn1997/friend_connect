@@ -27,6 +27,11 @@ gem 'mini_magick'
 
 gem 'mimemagic', '0.3.7'
 
+gem 'net-smtp'
+
+gem 'net-imap'
+
+gem 'net-pop'
 
 gem 'bootsnap', '>= 1.4.4', require: false
 
