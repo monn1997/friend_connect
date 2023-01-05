@@ -1,44 +1,46 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>FrinedConnect</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+  <div class="wrapper">
+    <head>
+      <title>FrinedConnect</title>
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
-  <body>
-  <header>
-        <ul class="header-text">
+    <body>
+    <header>
+          <ul class="header-text">
+            <li>
+              friend-application
+            </li>
+          </ul>
+    </header>          
+          
+      <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+      <% end %>
+
+      <% if logged_in? %>
+        <%= link_to "Profile", user_path(current_user.id) %>
+        <%= link_to "Logout", session_path(current_user.id), method: :delete %>
+      <% else %>
+        <%= link_to "Sign up", new_user_path %>
+        <%= link_to "Login", new_session_path %>
+      <% end %>
+
+      <%= yield %>
+      
+      <footer>
+        <ul class="footer-text">
           <li>
-            friend-application
+          友達つながりアプリケーション
           </li>
         </ul>
-  </header>          
-        
-    <% flash.each do |key, value| %>
-     <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-
-    <% if logged_in? %>
-      <%= link_to "Profile", user_path(current_user.id) %>
-      <%= link_to "Logout", session_path(current_user.id), method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_path %>
-      <%= link_to "Login", new_session_path %>
-    <% end %>
-
-    <%= yield %>
-     
-     <footer>
-       <ul class="footer-text">
-        <li>
-         友達つながりアプリケーション
-        </li>
-       </ul>
-     </footer>    
-  </body>
+      </footer>    
+    </body>
+  </div>  
 </html>

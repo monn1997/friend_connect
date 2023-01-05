@@ -35,6 +35,13 @@
     padding-top: 0px; 
 }
 
+.wrapper {
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 120px;
+    box-sizing: border-box;
+}
+
 .footer-text {
     background-color: cornflowerblue;
     height: 30px;
